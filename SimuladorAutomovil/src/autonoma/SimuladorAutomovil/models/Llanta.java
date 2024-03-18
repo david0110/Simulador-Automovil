@@ -1,0 +1,27 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package autonoma.SimuladorAutomovil.models;
+
+/**
+ *
+ * @author DOSSA0110
+ */
+public class Llanta {
+
+    // Atributos
+    /**
+     *
+     */
+    private String tipoLlanta;
+    /**
+     *
+     */
+    private int velocidadPermitida;
+    // Metodo constructor
+    /**
+     *
+     */
+    // Metodos de acceso
+}
