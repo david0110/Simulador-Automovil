@@ -23,7 +23,7 @@ public class Motor {
     }
     // Metodos de acceso
     /**
-     *
+     *  Metodos de acceso
      */
     public int getCilindraje() {
         return cilindraje;

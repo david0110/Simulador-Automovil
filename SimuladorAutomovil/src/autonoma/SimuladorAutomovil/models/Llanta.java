@@ -30,7 +30,7 @@ public class Llanta {
     }  
     // Metodos de acceso
     /**
-     * 
+     * Metodos de acceso
      */
     public String getTipoLlanta() {
         return tipoLlanta;

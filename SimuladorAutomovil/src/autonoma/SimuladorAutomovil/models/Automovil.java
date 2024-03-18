@@ -35,7 +35,10 @@ public class Automovil {
         this.velocidad = velocidad;
         this.llanta = new Llanta();
     }
-
+    // Metodos de acceso
+    /**
+     * Metodos de acceso
+     */
     public boolean isEstado() {
         return estado;
     }
@@ -59,9 +62,4 @@ public class Automovil {
     public void setLlanta(Llanta llanta) {
         this.llanta = llanta;
     }
-    // Metodos de acceso
-    /**
-     * 
-     */
-    
 }
