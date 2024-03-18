@@ -1,4 +1,6 @@
 package autonoma.SimuladorAutomovil.models;
+import autonoma.SimuladorAutomovil.models.Llanta;
+import autonoma.SimuladorAutomovil.models.Motor;
 /**
  * @author DOSSA0110
  * @author CRISTIAN
@@ -23,10 +25,43 @@ public class Automovil {
     /**
      * Inicializo cada uno de los atributos anteriores
      */
+    public Automovil() {
+        boolean estado = false;
+        int velocidad = 0;
+        Llanta llanta;
+    }
     public Automovil(boolean estado, int velocidad, Llanta llanta) {
         this.estado = estado;
         this.velocidad = velocidad;
+        this.llanta = new Llanta();
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+
+    public int getVelocidad() {
+        return velocidad;
+    }
+
+    public void setVelocidad(int velocidad) {
+        this.velocidad = velocidad;
+    }
+
+    public Llanta getLlanta() {
+        return llanta;
+    }
+
+    public void setLlanta(Llanta llanta) {
         this.llanta = llanta;
     }
     // Metodos de acceso
+    /**
+     * 
+     */
+    
 }
