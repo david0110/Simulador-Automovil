@@ -26,9 +26,9 @@ public class Automovil {
      * Inicializo cada uno de los atributos anteriores
      */
     public Automovil() {
-        boolean estado = false;
-        int velocidad = 0;
-        Llanta llanta;
+        this.estado = false; // Inicializa el estado como apagado
+        this.velocidad = 0;  // Inicializa la velocidad como cero
+        this.llanta = new Llanta();
     }
     public Automovil(boolean estado, int velocidad, Llanta llanta) {
         this.estado = estado;
@@ -39,10 +39,13 @@ public class Automovil {
     /**
      * Metodos de acceso
      */
-    public boolean isEstado() {
+    public boolean getEstado(boolean estado) {
         return estado;
     }
-
+    public boolean getEstado() {
+        return estado;
+    }
+    
     public void setEstado(boolean estado) {
         this.estado = estado;
     }
