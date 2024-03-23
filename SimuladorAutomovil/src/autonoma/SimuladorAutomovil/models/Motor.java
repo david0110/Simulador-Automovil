@@ -11,15 +11,22 @@ public class Motor {
      * Nos muestra el cilindraje del motor
      */
     private int cilindraje;
+    /**
+     * Muestra nos da el estado del vehiculo (Encendido / Apagado)
+     */
+    private boolean encendido;
+    /**
+     * Muestra la velocidad maxima de el motor
+     */
+    private double velocidadMaxima;
     // Metodo constructor
     /**
-     * Inicializa en 0 el atributo
+     * 
      */
-    public Motor() {
-        int cilindraje = 0;
-    }
-    public Motor(int cilindraje) {
+    public Motor(int cilindraje, boolean encendido, double velocidadMaxima) {
         this.cilindraje = cilindraje;
+        this.encendido = encendido;
+        this.velocidadMaxima = velocidadMaxima;
     }
     // Metodos de acceso
     /**
@@ -31,5 +38,36 @@ public class Motor {
 
     public void setCilindraje(int cilindraje) {
         this.cilindraje = cilindraje;
-    } 
+    }
+
+    public boolean isEncendido() {
+        return encendido;
+    }
+
+    public void setEncendido(boolean encendido) {
+        this.encendido = encendido;
+    }
+
+    public double getVelocidadMaxima() {
+        return velocidadMaxima;
+    }
+
+    public void setVelocidadMaxima(double velocidadMaxima) {
+        this.velocidadMaxima = velocidadMaxima;
+    }
+    // Metodos
+    public void encender(){
+        this.encendido = true;
+    }
+    public void apagar(){
+        this.encendido = false;
+    }
+    
+    public void validarVelocidad(double velocidad) throws CapacidadMotorException{
+        if (velocidad>this.velocidadMaxima){
+            throw new CapacidadMotorException();
+        }
+    }
+    
+    
 }

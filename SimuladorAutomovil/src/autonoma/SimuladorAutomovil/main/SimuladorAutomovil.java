@@ -1,5 +1,7 @@
 package autonoma.SimuladorAutomovil.main;
 import autonoma.SimuladorAutomovil.models.Automovil;
+import autonoma.SimuladorAutomovil.models.Motor;
+import autonoma.SimuladorAutomovil.models.Simulador;
 import autonoma.SimuladorAutomovil.views.PaginaPrincipal;
 
 /**
@@ -12,7 +14,19 @@ import autonoma.SimuladorAutomovil.views.PaginaPrincipal;
 public class SimuladorAutomovil {
 
     public static void main(String[] args) {
-        Automovil automovil = new Automovil();
+        Motor motor = new Motor(100);
+        Automovil automovil = new Automovil(motor);
+        Simulador simulador = new Simulador(automovil);
+        
+        simulador.encenderVehiculo();
+        try {
+            simulador.acelerarVehiculo(0);
+        } catch (CapacidadMotorException e) {
+            System.out.println("Sobrepasaste la velocidad maxima");
+            System.exit(0)
+        }
+        System.out.println("Has acelerado exitosamente");
+        
         PaginaPrincipal paginaPrincipal = new PaginaPrincipal(automovil);
         paginaPrincipal.setVisible(true);
 
