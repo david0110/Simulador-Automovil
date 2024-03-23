@@ -4,7 +4,7 @@ import autonoma.SimuladorAutomovil.views.PaginaPrincipal;
 
 /**
  * @author DOSSA0110
- * @author CRISTIAN
+ * @author Riven97
  * @version 1.0.0
  * @since 2024/03/14
  */
@@ -17,4 +17,6 @@ public class SimuladorAutomovil {
         paginaPrincipal.setVisible(true);
 
     }
+    
+    
 }
