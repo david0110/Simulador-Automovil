@@ -1,4 +1,7 @@
 package autonoma.SimuladorAutomovil.models;
+
+import autonoma.SimuladorAutomovil.exception.CapacidadMotorException;
+
 /**
  * @author DOSSA0110
  * @author Riven97
