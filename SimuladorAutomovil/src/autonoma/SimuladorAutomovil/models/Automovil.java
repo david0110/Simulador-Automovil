@@ -20,7 +20,7 @@ public class Automovil {
     /**
      * Muestra la velocidad actual del vehiculo
      */
-    private int velocidad;
+    private double velocidad;
     /**
      * Muestra
      */
@@ -41,7 +41,7 @@ public class Automovil {
         this.motor = motor;
     }
 
-    public Automovil(boolean estado, int velocidad, Llanta llanta) {
+    public Automovil(boolean estado, double velocidad, Llanta llanta) {
         this.estado = estado;
         this.velocidad = velocidad;
         this.llanta = new Llanta();
@@ -70,11 +70,11 @@ public class Automovil {
         this.estado = estado;
     }
 
-    public int getVelocidad() {
+    public double getVelocidad() {
         return velocidad;
     }
 
-    public void setVelocidad(int velocidad) {
+    public void setVelocidad(double velocidad) {
         this.velocidad = velocidad;
     }
 
