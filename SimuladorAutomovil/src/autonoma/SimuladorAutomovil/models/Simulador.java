@@ -1,4 +1,3 @@
-
 package autonoma.SimuladorAutomovil.models;
 
 /**
@@ -8,22 +7,25 @@ package autonoma.SimuladorAutomovil.models;
  * @since 2024/03/14
  */
 public class Simulador {
+
     //Atributos
     private Automovil automovil;
-    
+
     // Metodo constructor
     public Simulador(Automovil automovil) {
         this.automovil = automovil;
     }
-    
+
     // Metodos 
-    public void encenderVehiculo(){
+    public void encenderVehiculo() {
         this.automovil.encender();
     }
-    public void apagarVehiculo(){
+
+    public void apagarVehiculo() {
         this.automovil.apagar();
     }
-    public void acelerarVehiculo(double velocidad){
-        
+
+    public void acelerarVehiculo(double velocidad) {
+
     }
 }

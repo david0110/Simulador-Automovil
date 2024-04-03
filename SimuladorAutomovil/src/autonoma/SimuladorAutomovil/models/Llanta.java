@@ -1,4 +1,5 @@
 package autonoma.SimuladorAutomovil.models;
+
 /**
  * @author DOSSA0110
  * @author Riven97
@@ -6,16 +7,18 @@ package autonoma.SimuladorAutomovil.models;
  * @since 2024/03/14
  */
 public class Llanta {
+
     // Atributos
     /**
      * Nos muestra EL tipo de la llanata que tioene el vehiculo
      */
     private String tipoLlanta;
     /**
-     * Nos muestra la velocidad maxima permitida a la que se 
-     * puede llegar utilizando ese tipo de llanta
+     * Nos muestra la velocidad maxima permitida a la que se puede llegar
+     * utilizando ese tipo de llanta
      */
     private int velocidadPermitida;
+
     // Metodo constructor
     /**
      * Inicializa las los atributos anteriores
@@ -24,10 +27,12 @@ public class Llanta {
         String tipoLlanta = "";
         int velocidadPermitida = 0;
     }
+
     public Llanta(String tipoLlanta, int velocidadPermitida) {
         this.tipoLlanta = tipoLlanta;
         this.velocidadPermitida = velocidadPermitida;
-    }  
+    }
+
     // Metodos de acceso
     /**
      * Metodos de acceso
@@ -47,5 +52,5 @@ public class Llanta {
     public void setVelocidadPermitida(int velocidadPermitida) {
         this.velocidadPermitida = velocidadPermitida;
     }
-    
+
 }

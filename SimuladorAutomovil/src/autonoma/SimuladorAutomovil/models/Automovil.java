@@ -1,6 +1,10 @@
 package autonoma.SimuladorAutomovil.models;
 
+import autonoma.SimuladorAutomovil.Enums.Acciones;
+import autonoma.SimuladorAutomovil.exception.ApagadoException;
 import autonoma.SimuladorAutomovil.exception.CapacidadMotorException;
+import autonoma.SimuladorAutomovil.exception.EncendidoException;
+import autonoma.SimuladorAutomovil.exception.QuietoException;
 import autonoma.SimuladorAutomovil.models.Llanta;
 import autonoma.SimuladorAutomovil.models.Motor;
 
@@ -89,32 +93,57 @@ public class Automovil {
     /**
      * Metodo para encender
      */
-    public void encender() {
+    public void encender() throws EncendidoException {
+        if (this.motor.isEncendido()) {
+            throw new EncendidoException();
+        }
         this.motor.encender();
     }
 
-    
-    public void accidentarVehiculo(){
+    public void accidentarVehiculo() {
         this.setVelocidad(0);
         this.apagar();
     }
-    
+
     /**
      * Metodo para acelerar
      */
-    public void acelerar(double velocidad)throws CapacidadMotorException {
-        
+    public void acelerar(double velocidad) {
+
+        if (!this.motor.isEncendido()) {
+            throw new ApagadoException(ApagadoException.getMessage(Acciones.ACELERAR));
+        }
         double nVelocidad = this.velocidad + velocidad;
         this.motor.validarVelocidad(nVelocidad);
         this.setVelocidad(nVelocidad);
-        
+
     }
 
-     /**
+    /**
      * Metodo para acelerar
      */
-    public void apagar(){
-    this.motor.apagar();
+    public void apagar() throws ApagadoException {
+        if (!this.motor.isEncendido()) {
+            throw new ApagadoException(ApagadoException.getMessage(Acciones.APAGAR));
+        }
+        this.motor.apagar();
     }
-    
+
+    public void frenar(double velocidad) {
+
+        if (!this.motor.isEncendido()) {
+            throw new ApagadoException(ApagadoException.getMessage(Acciones.FRENAR));
+        }
+        double nVelocidad = this.velocidad - velocidad;
+        if (nVelocidad < 0) {
+            nVelocidad = 0;
+        }
+        this.motor.validarVelocidad(nVelocidad);
+        this.setVelocidad(nVelocidad);
+        
+        if (nVelocidad == 0) {
+            throw new QuietoException();
+        }
+
+    }
 }

@@ -1,6 +1,8 @@
 package autonoma.SimuladorAutomovil.models;
 
+import autonoma.SimuladorAutomovil.exception.ApagadoException;
 import autonoma.SimuladorAutomovil.exception.CapacidadMotorException;
+import autonoma.SimuladorAutomovil.exception.EncendidoException;
 
 /**
  * @author DOSSA0110
@@ -9,6 +11,7 @@ import autonoma.SimuladorAutomovil.exception.CapacidadMotorException;
  * @since 2024/03/14
  */
 public class Motor {
+
     // Atributos
     /**
      * Nos muestra el cilindraje del motor
@@ -22,18 +25,20 @@ public class Motor {
      * Muestra la velocidad maxima de el motor
      */
     private double velocidadMaxima;
+
     // Metodo constructor
     /**
-     * 
+     *
      */
     public Motor(int cilindraje, boolean encendido, double velocidadMaxima) {
         this.cilindraje = cilindraje;
         this.encendido = encendido;
         this.velocidadMaxima = velocidadMaxima;
     }
+
     // Metodos de acceso
     /**
-     *  Metodos de acceso
+     * Metodos de acceso
      */
     public int getCilindraje() {
         return cilindraje;
@@ -58,19 +63,25 @@ public class Motor {
     public void setVelocidadMaxima(double velocidadMaxima) {
         this.velocidadMaxima = velocidadMaxima;
     }
+
     // Metodos
-    public void encender(){
+    ///Excepcion uno
+    public void encender() {
+
         this.encendido = true;
     }
-    public void apagar(){
+
+    //Excepcion dos
+    public void apagar() {
+
         this.encendido = false;
     }
-    
-    public void validarVelocidad(double velocidad) throws CapacidadMotorException{
-        if (velocidad>this.velocidadMaxima){
+
+    //Excepcion ocho
+    public void validarVelocidad(double velocidad) throws CapacidadMotorException {
+        if (velocidad > this.velocidadMaxima) {
             throw new CapacidadMotorException();
         }
     }
-    
-    
+
 }

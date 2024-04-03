@@ -8,10 +8,9 @@ package autonoma.SimuladorAutomovil.exception;
  */
 public class CapacidadMotorException extends RuntimeException {
 
-    
     //Excepcion #8
     public CapacidadMotorException() {
         super("La velocidad excedio el limite permitido del motor");
     }
-    
+
 }
