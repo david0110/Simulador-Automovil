@@ -5,7 +5,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 /**
  * @author DOSSA0110
- * @author CRISTIAN
+ * @author Riven97
  * @version 1.0.0
  * @since 2024/03/14
  */

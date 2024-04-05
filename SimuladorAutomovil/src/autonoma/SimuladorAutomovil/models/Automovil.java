@@ -4,6 +4,7 @@ import autonoma.SimuladorAutomovil.Enums.Acciones;
 import autonoma.SimuladorAutomovil.exception.ApagadoException;
 import autonoma.SimuladorAutomovil.exception.CapacidadMotorException;
 import autonoma.SimuladorAutomovil.exception.EncendidoException;
+import autonoma.SimuladorAutomovil.exception.PatinariaException;
 import autonoma.SimuladorAutomovil.exception.QuietoException;
 import autonoma.SimuladorAutomovil.models.Llanta;
 import autonoma.SimuladorAutomovil.models.Motor;
@@ -138,12 +139,16 @@ public class Automovil {
         if (nVelocidad < 0) {
             nVelocidad = 0;
         }
-        this.motor.validarVelocidad(nVelocidad);
-        this.setVelocidad(nVelocidad);
-        
-        if (nVelocidad == 0) {
+
+        if (nVelocidad == 0 || velocidad == 0) {
             throw new QuietoException();
         }
 
+        if (this.frenar(velocidad) < nVelocidad) {
+            throw new PatinariaException();
+        }
+
+        this.motor.validarVelocidad(nVelocidad);
+        this.setVelocidad(nVelocidad);
     }
 }

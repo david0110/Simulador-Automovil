@@ -3,8 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/F:/RepositorioUniversiadaPOO/Simulador%20Automovil/SimuladorAutomovil/src/autonoma/SimuladorAutomovil/main/SimuladorAutomovil.java</file>
-            <file>file:/F:/RepositorioUniversiadaPOO/Simulador%20Automovil/SimuladorAutomovil/src/autonoma/SimuladorAutomovil/models/Motor.java</file>
+            <file>file:/F:/Descargas/POO/NuevoPOO/tallerAuto/Simulador-Automovil/SimuladorAutomovil/src/autonoma/SimuladorAutomovil/img/FrenoBTN.png</file>
+            <file>file:/F:/Descargas/POO/NuevoPOO/tallerAuto/Simulador-Automovil/SimuladorAutomovil/src/autonoma/SimuladorAutomovil/models/Simulador.java</file>
+            <file>file:/F:/Descargas/POO/NuevoPOO/tallerAuto/Simulador-Automovil/SimuladorAutomovil/src/autonoma/SimuladorAutomovil/models/Automovil.java</file>
+            <file>file:/F:/Descargas/POO/NuevoPOO/tallerAuto/Simulador-Automovil/SimuladorAutomovil/src/autonoma/SimuladorAutomovil/main/SimuladorAutomovil.java</file>
+            <file>file:/F:/Descargas/POO/NuevoPOO/tallerAuto/Simulador-Automovil/SimuladorAutomovil/src/autonoma/SimuladorAutomovil/models/Motor.java</file>
+            <file>file:/F:/Descargas/POO/NuevoPOO/tallerAuto/Simulador-Automovil/SimuladorAutomovil/src/autonoma/SimuladorAutomovil/exception/PatinariaException.java</file>
+            <file>file:/F:/Descargas/POO/NuevoPOO/tallerAuto/Simulador-Automovil/SimuladorAutomovil/src/autonoma/SimuladorAutomovil/views/PaginaPrincipal.java</file>
+            <file>file:/F:/Descargas/POO/NuevoPOO/tallerAuto/Simulador-Automovil/SimuladorAutomovil/src/autonoma/SimuladorAutomovil/exception/QuietoException.java</file>
+            <file>file:/F:/Descargas/POO/NuevoPOO/tallerAuto/Simulador-Automovil/SimuladorAutomovil/src/autonoma/SimuladorAutomovil/exception/EncendidoException.java</file>
         </group>
     </open-files>
 </project-private>

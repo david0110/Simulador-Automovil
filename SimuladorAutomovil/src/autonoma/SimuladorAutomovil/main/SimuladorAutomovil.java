@@ -15,7 +15,7 @@ import autonoma.SimuladorAutomovil.views.PaginaPrincipal;
 public class SimuladorAutomovil {
 
     public static void main(String[] args) {
-        Motor motor = new Motor(100, false, 100);
+        Motor motor = new Motor(0, false, 0);
         Automovil automovil = new Automovil(motor);
         Simulador simulador = new Simulador(automovil);
 
