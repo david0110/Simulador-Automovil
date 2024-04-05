@@ -316,7 +316,7 @@ public class PaginaPrincipal extends javax.swing.JFrame {
             System.out.println("!!El carro no se puede frenar estando apagado!!");
         }else{
             
-            System.out.println("!!Freno - 10 km/h!!");
+            automovil.frenar(WIDTH);
         }
     }//GEN-LAST:event_FrenarCarroBtnMouseClicked
 
@@ -335,7 +335,7 @@ public class PaginaPrincipal extends javax.swing.JFrame {
         }else{
             
             
-            System.out.println("!!Acelero + 10 km/h!!");
+            automovil.acelerar(WIDTH);
         }
     }//GEN-LAST:event_AcelerarCarroBtnMouseClicked
 
