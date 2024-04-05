@@ -18,13 +18,13 @@ public class ApagadoException extends RuntimeException {
     public static String getMessage(Acciones accion) {
         return switch (accion) {
             case ACELERAR ->
-                "El vehiculo no puede acelerar porque está apagado";
+                "El vehiculo no puede acelerar porque esta apagado";
             case APAGAR ->
-                "El vehiculo no se puede aapagar porque ya está apagado";
+                "El vehiculo no se puede apagar porque ya esta apagado";
             case FRENAR ->
-                "El vehiculo no se puede frenar porque está apagado";
+                "El vehiculo no se puede frenar porque esta apagado";
             default ->
-                "El vihuculo aun no está encendido";
+                "El vihuculo aun no esta encendido";
         };
 
     }

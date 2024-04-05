@@ -1,8 +1,13 @@
 package autonoma.SimuladorAutomovil.views;
+
+import autonoma.SimuladorAutomovil.Enums.Acciones;
+import static autonoma.SimuladorAutomovil.Enums.Acciones.ACELERAR;
+import autonoma.SimuladorAutomovil.exception.ApagadoException;
 import autonoma.SimuladorAutomovil.models.Automovil;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+
 /**
  * @author DOSSA0110
  * @author Riven97
@@ -10,8 +15,10 @@ import javax.swing.JPanel;
  * @since 2024/03/14
  */
 public class PaginaPrincipal extends javax.swing.JFrame {
+
     private Automovil automovil;
     private boolean estado;
+
     public PaginaPrincipal(Automovil automovil) {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -19,9 +26,10 @@ public class PaginaPrincipal extends javax.swing.JFrame {
             this.setIconImage(new ImageIcon(getClass().getResource("/autonoma/SimuladorAutomovil/img/CarroIMG.jpg")).getImage());
         } catch (Exception e) {
         }
-        
+
         this.automovil = automovil; // Inicializa el objeto automovil con el que se pasa como argumento
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -263,35 +271,37 @@ public class PaginaPrincipal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    private void mouseEntred(JPanel panel){
-        panel.setBackground(new Color(51,51,51));
+    private void mouseEntred(JPanel panel) {
+        panel.setBackground(new Color(51, 51, 51));
     }
-    private void mouseExited(JPanel panel){
-        panel.setBackground(new Color(0,0,0));
+
+    private void mouseExited(JPanel panel) {
+        panel.setBackground(new Color(0, 0, 0));
     }
-    private void mouseClicked(JPanel panel){
-        panel.setBackground(new Color(102,102,102));
+
+    private void mouseClicked(JPanel panel) {
+        panel.setBackground(new Color(102, 102, 102));
     }
     private void EncenderCarroBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EncenderCarroBtnMouseClicked
-        this.mouseClicked(EncenderCarroBtn); 
+        this.mouseClicked(EncenderCarroBtn);
         if (!automovil.getEstado()) {
             automovil.setEstado(true);
             System.out.println("!!El carro esta encendido!!");
             System.out.println("Estado = True");
         } else {
-            System.out.println("El carro NO se puede encender de nuevo");
+            automovil.encender();
         }
     }//GEN-LAST:event_EncenderCarroBtnMouseClicked
 
     private void ApagarCarroBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ApagarCarroBtnMouseClicked
         this.mouseClicked(ApagarCarroBtn);
-        if (automovil.getEstado()) { 
-        automovil.setEstado(false); 
-            System.out.println("!!El carro esta Apagado!!");
+        if (automovil.getEstado()) {
+            automovil.setEstado(false);
+            System.out.println("!!El carro esta apagado!!");
             System.out.println("Estado = False");
         } else {
-            System.out.println("El carro NO se puede apagar de nuevo");
-        }      
+            automovil.apagar();
+        }
     }//GEN-LAST:event_ApagarCarroBtnMouseClicked
 
     private void EncenderCarroBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EncenderCarroBtnMouseEntered
@@ -312,11 +322,10 @@ public class PaginaPrincipal extends javax.swing.JFrame {
 
     private void FrenarCarroBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FrenarCarroBtnMouseClicked
         this.mouseClicked(FrenarCarroBtn);
-        if(automovil.getEstado() == false){
-            System.out.println("!!El carro no se puede frenar estando apagado!!");
-        }else{
-            
-            automovil.frenar(WIDTH);
+        if (automovil.getEstado() == false) {
+            throw new ApagadoException(ApagadoException.getMessage(Acciones.FRENAR));
+        } else {
+            automovil.frenar(10, 30);
         }
     }//GEN-LAST:event_FrenarCarroBtnMouseClicked
 
@@ -330,12 +339,10 @@ public class PaginaPrincipal extends javax.swing.JFrame {
 
     private void AcelerarCarroBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AcelerarCarroBtnMouseClicked
         this.mouseClicked(AcelerarCarroBtn);
-        if(automovil.getEstado() == false){
-            System.out.println("!!El carro no se puede aclerar estando apagado!!");
-        }else{
-            
-            
-            automovil.acelerar(WIDTH);
+        if (automovil.getEstado() == false) {
+            throw new ApagadoException(ApagadoException.getMessage(Acciones.ACELERAR));
+        } else {
+            automovil.acelerar(25);
         }
     }//GEN-LAST:event_AcelerarCarroBtnMouseClicked
 

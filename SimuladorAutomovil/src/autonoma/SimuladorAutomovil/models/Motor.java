@@ -18,7 +18,7 @@ public class Motor {
      */
     private int cilindraje;
     /**
-     * Muestra nos da el estado del vehiculo (Encendido / Apagado)
+     * Nos da el estado del vehiculo (Encendido / Apagado)
      */
     private boolean encendido;
     /**
@@ -65,13 +65,11 @@ public class Motor {
     }
 
     // Metodos
-    ///Excepcion uno
     public void encender() {
 
         this.encendido = true;
     }
 
-    //Excepcion dos
     public void apagar() {
 
         this.encendido = false;

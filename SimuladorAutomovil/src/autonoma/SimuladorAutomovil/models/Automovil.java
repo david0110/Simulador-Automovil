@@ -109,7 +109,7 @@ public class Automovil {
     /**
      * Metodo para acelerar
      */
-    public void acelerar(double velocidad) {
+    public void acelerar(int velocidad) {
 
         if (!this.motor.isEncendido()) {
             throw new ApagadoException(ApagadoException.getMessage(Acciones.ACELERAR));
@@ -130,7 +130,7 @@ public class Automovil {
         this.motor.apagar();
     }
 
-    public void frenar(double velocidad) {
+    public void frenar(double velocidad, double intensidadFrenado) {
 
         if (!this.motor.isEncendido()) {
             throw new ApagadoException(ApagadoException.getMessage(Acciones.FRENAR));
@@ -144,7 +144,7 @@ public class Automovil {
             throw new QuietoException();
         }
 
-        if (this.frenar(velocidad) < nVelocidad) {
+        if (intensidadFrenado > nVelocidad) {
             throw new PatinariaException();
         }
 
