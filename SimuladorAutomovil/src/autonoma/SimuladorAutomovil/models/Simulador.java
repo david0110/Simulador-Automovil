@@ -1,5 +1,9 @@
 package autonoma.SimuladorAutomovil.models;
 
+import autonoma.SimuladorAutomovil.Enums.Acciones;
+import autonoma.SimuladorAutomovil.exception.AccidenteException;
+import autonoma.SimuladorAutomovil.exception.ApagadoException;
+
 /**
  * @author DOSSA0110
  * @author Riven97
@@ -21,12 +25,22 @@ public class Simulador {
         this.automovil.encender();
     }
 
-    public void apagarVehiculo() {
-        this.automovil.apagar();
+    public String apagarVehiculo() {
+        try {
+            this.automovil.apagar();
+        } catch (ApagadoException | AccidenteException e) {
+            return e.getMessage();
+        }
+        return "El vehiculo se apago ";
     }
 
-    public void acelerar() {
-        this.automovil.acelerar(10);
+    public String acelerar() {
+        try{
+            this.automovil.acelerar(10);
+        }catch( ApagadoException e){
+            return e.getMessage();
+        }
+        return " Aceleraste " + automovil.getVelocidad() + " Km/h ";
     }
 
     public void frenar() {

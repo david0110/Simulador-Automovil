@@ -114,7 +114,7 @@ public class Automovil {
      *
      * @param velocidad
      */
-    public void acelerar(double velocidad) {
+    public void acelerar(double velocidad)throws ApagadoException {
 
         if (!this.motor.isEncendido()) {
             throw new ApagadoException(ApagadoException.getMessage(Acciones.ACELERAR));
@@ -126,7 +126,7 @@ public class Automovil {
         double nVelocidad = this.velocidad + velocidad;
         this.motor.validarVelocidad(nVelocidad);
         this.setVelocidad(nVelocidad);
-        System.out.println(" Aceleraste " + nVelocidad + " Km/h ");
+        
     }
 
     /**

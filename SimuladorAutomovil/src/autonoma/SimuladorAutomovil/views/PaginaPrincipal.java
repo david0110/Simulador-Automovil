@@ -8,6 +8,7 @@ import autonoma.SimuladorAutomovil.models.Simulador;
 import java.awt.Color;
 import javax.naming.PartialResultException;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -294,7 +295,8 @@ public class PaginaPrincipal extends javax.swing.JFrame {
     private void ApagarCarroBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ApagarCarroBtnMouseClicked
         this.mouseClicked(ApagarCarroBtn);
 
-        simulador.apagarVehiculo();
+        String mensaje = simulador.apagarVehiculo();
+        JOptionPane.showMessageDialog(null, mensaje);
 
     }//GEN-LAST:event_ApagarCarroBtnMouseClicked
 
@@ -331,7 +333,8 @@ public class PaginaPrincipal extends javax.swing.JFrame {
     private void AcelerarCarroBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AcelerarCarroBtnMouseClicked
         this.mouseClicked(AcelerarCarroBtn);
 
-        simulador.acelerar();
+        String mensaje = simulador.acelerar();
+        JOptionPane.showMessageDialog(null, mensaje);
 
     }//GEN-LAST:event_AcelerarCarroBtnMouseClicked
 

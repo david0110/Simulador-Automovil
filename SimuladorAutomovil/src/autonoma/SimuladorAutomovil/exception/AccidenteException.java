@@ -1,5 +1,7 @@
 package autonoma.SimuladorAutomovil.exception;
 
+import autonoma.SimuladorAutomovil.Enums.Acciones;
+
 /**
  * @author DOSSA0110
  * @author Riven97
@@ -7,9 +9,13 @@ package autonoma.SimuladorAutomovil.exception;
  * @since 2024/03/14
  */
 public class AccidenteException extends RuntimeException {
-
-    public AccidenteException() {
-        super("El vehiculo se accidento por apagarlo mientras va a mas de 60km/h");
+    
+    private  static String mensaje = "El vehiculo se accidento por apagarlo mientras va a mas de 60km/h";
+    
+    public AccidenteException( ) {
+        
+        super(AccidenteException.mensaje);
     }
 
+        
 }
