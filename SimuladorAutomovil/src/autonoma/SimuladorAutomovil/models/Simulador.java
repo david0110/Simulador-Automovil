@@ -17,7 +17,7 @@ public class Simulador {
     }
 
     // Metodos 
-    public void encenderVehiculo() {
+    public void encender() {
         this.automovil.encender();
     }
 
@@ -25,7 +25,15 @@ public class Simulador {
         this.automovil.apagar();
     }
 
-    public void acelerarVehiculo(double velocidad) {
+    public void acelerar() {
+        this.automovil.acelerar(10);
+    }
 
+    public void frenar() {
+        this.automovil.frenar(10);
+    }
+
+    public void frenarBruscamente() {
+        this.automovil.frenarBruscamente(31);
     }
 }

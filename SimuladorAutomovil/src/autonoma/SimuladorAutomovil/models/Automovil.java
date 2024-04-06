@@ -1,6 +1,7 @@
 package autonoma.SimuladorAutomovil.models;
 
 import autonoma.SimuladorAutomovil.Enums.Acciones;
+import autonoma.SimuladorAutomovil.exception.AccidenteException;
 import autonoma.SimuladorAutomovil.exception.ApagadoException;
 import autonoma.SimuladorAutomovil.exception.CapacidadMotorException;
 import autonoma.SimuladorAutomovil.exception.EncendidoException;
@@ -98,6 +99,8 @@ public class Automovil {
         if (this.motor.isEncendido()) {
             throw new EncendidoException();
         }
+        System.out.println("!!El carro esta encendido!!");
+        System.out.println("Estado = True");
         this.motor.encender();
     }
 
@@ -108,30 +111,47 @@ public class Automovil {
 
     /**
      * Metodo para acelerar
+     *
+     * @param velocidad
      */
-    public void acelerar(int velocidad) {
+    public void acelerar(double velocidad) {
 
         if (!this.motor.isEncendido()) {
             throw new ApagadoException(ApagadoException.getMessage(Acciones.ACELERAR));
         }
+        if (velocidad > 30) {
+            System.out.println("Acelero bruscamente");
+        }
+
         double nVelocidad = this.velocidad + velocidad;
         this.motor.validarVelocidad(nVelocidad);
         this.setVelocidad(nVelocidad);
-
+        System.out.println(" Aceleraste " + nVelocidad + " Km/h ");
     }
 
     /**
-     * Metodo para acelerar
+     * Metodo para apagar
      */
     public void apagar() throws ApagadoException {
         if (!this.motor.isEncendido()) {
             throw new ApagadoException(ApagadoException.getMessage(Acciones.APAGAR));
         }
+
         this.motor.apagar();
+        System.out.println("El vehiculo se apago");
+        if (this.velocidad > 60) {
+            this.velocidad = 0;
+            throw new AccidenteException();
+        }
+        this.velocidad = 0;
     }
 
-    public void frenar(double velocidad, double intensidadFrenado) {
-
+    /**
+     * Metodo para Frenar bruscamente(Freno de mano)
+     *
+     * @param intensidadFrenado
+     */
+    public void frenarBruscamente(double intensidadFrenado) {
         if (!this.motor.isEncendido()) {
             throw new ApagadoException(ApagadoException.getMessage(Acciones.FRENAR));
         }
@@ -139,16 +159,32 @@ public class Automovil {
         if (nVelocidad < 0) {
             nVelocidad = 0;
         }
-
-        if (nVelocidad == 0 || velocidad == 0) {
-            throw new QuietoException();
-        }
-
         if (intensidadFrenado > nVelocidad) {
             throw new PatinariaException();
+        }
+        this.motor.validarVelocidad(nVelocidad);
+        this.setVelocidad(nVelocidad);
+        System.out.println(" Frenaste bruscamente " + nVelocidad + " Km/h ");
+    }
+
+    /**
+     * Metodo para Frenar
+     *
+     * @param velocidad
+     */
+    public void frenar(double velocidad) {
+
+        if (!this.motor.isEncendido()) {
+            throw new ApagadoException(ApagadoException.getMessage(Acciones.FRENAR));
+        }
+        double nVelocidad = this.velocidad - velocidad;
+        if (nVelocidad < 0) {
+            nVelocidad = 0;
+            throw new QuietoException();
         }
 
         this.motor.validarVelocidad(nVelocidad);
         this.setVelocidad(nVelocidad);
+        System.out.println(" Frenaste hasta llegar a " + nVelocidad + " Km/h ");
     }
 }

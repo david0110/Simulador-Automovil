@@ -19,9 +19,7 @@ public class SimuladorAutomovil {
         Automovil automovil = new Automovil(motor);
         Simulador simulador = new Simulador(automovil);
 
-        simulador.encenderVehiculo();
-
-        PaginaPrincipal paginaPrincipal = new PaginaPrincipal(automovil);
+        PaginaPrincipal paginaPrincipal = new PaginaPrincipal(simulador);
         paginaPrincipal.setVisible(true);
 
     }

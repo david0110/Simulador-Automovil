@@ -4,7 +4,9 @@ import autonoma.SimuladorAutomovil.Enums.Acciones;
 import static autonoma.SimuladorAutomovil.Enums.Acciones.ACELERAR;
 import autonoma.SimuladorAutomovil.exception.ApagadoException;
 import autonoma.SimuladorAutomovil.models.Automovil;
+import autonoma.SimuladorAutomovil.models.Simulador;
 import java.awt.Color;
+import javax.naming.PartialResultException;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
@@ -16,10 +18,10 @@ import javax.swing.JPanel;
  */
 public class PaginaPrincipal extends javax.swing.JFrame {
 
-    private Automovil automovil;
+    private Simulador simulador;
     private boolean estado;
 
-    public PaginaPrincipal(Automovil automovil) {
+    public PaginaPrincipal(Simulador simulador) {
         initComponents();
         this.setLocationRelativeTo(null);
         try {
@@ -27,7 +29,7 @@ public class PaginaPrincipal extends javax.swing.JFrame {
         } catch (Exception e) {
         }
 
-        this.automovil = automovil; // Inicializa el objeto automovil con el que se pasa como argumento
+        this.simulador = simulador; // Inicializa el objeto automovil con el que se pasa como argumento
     }
 
     @SuppressWarnings("unchecked")
@@ -284,24 +286,16 @@ public class PaginaPrincipal extends javax.swing.JFrame {
     }
     private void EncenderCarroBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EncenderCarroBtnMouseClicked
         this.mouseClicked(EncenderCarroBtn);
-        if (!automovil.getEstado()) {
-            automovil.setEstado(true);
-            System.out.println("!!El carro esta encendido!!");
-            System.out.println("Estado = True");
-        } else {
-            automovil.encender();
-        }
+
+        simulador.encender();
+
     }//GEN-LAST:event_EncenderCarroBtnMouseClicked
 
     private void ApagarCarroBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ApagarCarroBtnMouseClicked
         this.mouseClicked(ApagarCarroBtn);
-        if (automovil.getEstado()) {
-            automovil.setEstado(false);
-            System.out.println("!!El carro esta apagado!!");
-            System.out.println("Estado = False");
-        } else {
-            automovil.apagar();
-        }
+
+        simulador.apagarVehiculo();
+
     }//GEN-LAST:event_ApagarCarroBtnMouseClicked
 
     private void EncenderCarroBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EncenderCarroBtnMouseEntered
@@ -322,11 +316,8 @@ public class PaginaPrincipal extends javax.swing.JFrame {
 
     private void FrenarCarroBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FrenarCarroBtnMouseClicked
         this.mouseClicked(FrenarCarroBtn);
-        if (automovil.getEstado() == false) {
-            throw new ApagadoException(ApagadoException.getMessage(Acciones.FRENAR));
-        } else {
-            automovil.frenar(10, 30);
-        }
+        simulador.frenar();
+
     }//GEN-LAST:event_FrenarCarroBtnMouseClicked
 
     private void FrenarCarroBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FrenarCarroBtnMouseEntered
@@ -339,11 +330,9 @@ public class PaginaPrincipal extends javax.swing.JFrame {
 
     private void AcelerarCarroBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AcelerarCarroBtnMouseClicked
         this.mouseClicked(AcelerarCarroBtn);
-        if (automovil.getEstado() == false) {
-            throw new ApagadoException(ApagadoException.getMessage(Acciones.ACELERAR));
-        } else {
-            automovil.acelerar(25);
-        }
+
+        simulador.acelerar();
+
     }//GEN-LAST:event_AcelerarCarroBtnMouseClicked
 
     private void AcelerarCarroBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AcelerarCarroBtnMouseEntered
@@ -356,6 +345,9 @@ public class PaginaPrincipal extends javax.swing.JFrame {
 
     private void FrenoDeManoBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FrenoDeManoBtnMouseClicked
         this.mouseClicked(FrenoDeManoBtn);
+
+        simulador.frenarBruscamente();
+
     }//GEN-LAST:event_FrenoDeManoBtnMouseClicked
 
     private void FrenoDeManoBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FrenoDeManoBtnMouseEntered

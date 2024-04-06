@@ -9,7 +9,7 @@ package autonoma.SimuladorAutomovil.exception;
 public class PatinariaException extends RuntimeException {
 
     public PatinariaException() {
-        System.out.println("El vehiculo patina, por frenar bruscamente");
+        super("El vehiculo patina, por frenar bruscamente");
     }
 
 }
