@@ -114,7 +114,7 @@ public class Automovil {
      *
      * @param velocidad
      */
-    public void acelerar(double velocidad)throws ApagadoException {
+    public void acelerar(double velocidad) throws ApagadoException, CapacidadMotorException {
 
         if (!this.motor.isEncendido()) {
             throw new ApagadoException(ApagadoException.getMessage(Acciones.ACELERAR));
@@ -123,10 +123,12 @@ public class Automovil {
             System.out.println("Acelero bruscamente");
         }
 
+        this.motor.validarVelocidad(velocidad);
+
         double nVelocidad = this.velocidad + velocidad;
         this.motor.validarVelocidad(nVelocidad);
         this.setVelocidad(nVelocidad);
-        
+
     }
 
     /**
@@ -151,7 +153,7 @@ public class Automovil {
      *
      * @param intensidadFrenado
      */
-    public void frenarBruscamente(double intensidadFrenado) {
+    public void frenarBruscamente(double intensidadFrenado) throws ApagadoException, PatinariaException {
         if (!this.motor.isEncendido()) {
             throw new ApagadoException(ApagadoException.getMessage(Acciones.FRENAR));
         }
@@ -164,7 +166,7 @@ public class Automovil {
         }
         this.motor.validarVelocidad(nVelocidad);
         this.setVelocidad(nVelocidad);
-        System.out.println(" Frenaste bruscamente " + nVelocidad + " Km/h ");
+
     }
 
     /**
@@ -172,7 +174,7 @@ public class Automovil {
      *
      * @param velocidad
      */
-    public void frenar(double velocidad) {
+    public void frenar(double velocidad) throws ApagadoException, QuietoException {
 
         if (!this.motor.isEncendido()) {
             throw new ApagadoException(ApagadoException.getMessage(Acciones.FRENAR));
@@ -185,6 +187,6 @@ public class Automovil {
 
         this.motor.validarVelocidad(nVelocidad);
         this.setVelocidad(nVelocidad);
-        System.out.println(" Frenaste hasta llegar a " + nVelocidad + " Km/h ");
+
     }
 }

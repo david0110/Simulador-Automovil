@@ -287,8 +287,8 @@ public class PaginaPrincipal extends javax.swing.JFrame {
     }
     private void EncenderCarroBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EncenderCarroBtnMouseClicked
         this.mouseClicked(EncenderCarroBtn);
-
-        simulador.encender();
+        String mensaje = simulador.encender();
+        JOptionPane.showMessageDialog(null, mensaje);
 
     }//GEN-LAST:event_EncenderCarroBtnMouseClicked
 
@@ -318,7 +318,8 @@ public class PaginaPrincipal extends javax.swing.JFrame {
 
     private void FrenarCarroBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FrenarCarroBtnMouseClicked
         this.mouseClicked(FrenarCarroBtn);
-        simulador.frenar();
+        String mensaje = simulador.frenar();
+        JOptionPane.showMessageDialog(null, mensaje);
 
     }//GEN-LAST:event_FrenarCarroBtnMouseClicked
 
@@ -349,7 +350,8 @@ public class PaginaPrincipal extends javax.swing.JFrame {
     private void FrenoDeManoBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FrenoDeManoBtnMouseClicked
         this.mouseClicked(FrenoDeManoBtn);
 
-        simulador.frenarBruscamente();
+        String mensaje = simulador.frenarBruscamenteSimu();
+        JOptionPane.showMessageDialog(null, mensaje);
 
     }//GEN-LAST:event_FrenoDeManoBtnMouseClicked
 
